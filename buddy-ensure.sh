@@ -309,17 +309,9 @@ do_patch() {
     return 1
   fi
 
-  # Clear companion soul from all configs so next launch triggers re-hatch
-  # (only on first patch — if companion already matches new bones, skip)
-  for p in "${CONFIG_PATHS[@]}"; do
-    local result
-    result=$(clear_companion "$p")
-    if [[ "$result" == "cleared" ]]; then
-      log "  ${DIM}Cleared old companion from $(basename "$p")${NC}"
-    fi
-  done
+  # Keep companion soul — name/personality persist, bones regenerate from new salt.
 
-  log "  ${GREEN}✓${NC} Patched Claude binary ${DIM}(restart to hatch new companion)${NC}"
+  log "  ${GREEN}✓${NC} Patched Claude binary ${DIM}(restart to apply)${NC}"
   return 0
 }
 

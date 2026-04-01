@@ -182,20 +182,8 @@ do_patch() {
 
   [[ $(count_salt "$binary" "$ORIGINAL_SALT") -ne 0 ]] && { echo -e "${RED}Patch failed${NC}"; return 1; }
 
-  # Clear companion soul so re-hatch triggers
-  local paths; read -ra paths <<< "$(config_paths)"
-  for p in "${paths[@]}"; do
-    [[ -f "$p" ]] || continue
-    python3 -c "
-import json
-try:
-    with open('$p') as f: c = json.load(f)
-    if 'companion' in c:
-        del c['companion']
-        with open('$p','w') as f: json.dump(c, f, indent=2)
-except: pass
-" 2>/dev/null
-  done
+  # Keep companion soul (name/personality) — bones regenerate from new salt.
+  # Only clear if user hasn't hatched yet (no companion in config).
   return 0
 }
 
@@ -311,7 +299,7 @@ else: print('none')
     check_claude; check_python
     BINARY="$(resolve_binary)"
     if do_patch "$BINARY" "$MANUAL_SALT"; then
-      echo -e "${GREEN}✓${NC} Patched. Restart Claude Code, run ${BOLD}/buddy${NC}."
+      echo -e "${GREEN}✓${NC} Patched. Restart Claude Code — your companion name stays, new bones apply."
     fi
     exit 0
     ;;
@@ -420,6 +408,6 @@ fi
 
 if do_patch "$BINARY" "$CHOSEN"; then
   echo ""
-  echo -e "${GREEN}✓${NC} Patched. Restart Claude Code, run ${BOLD}/buddy${NC}."
+  echo -e "${GREEN}✓${NC} Patched. Restart Claude Code — your companion name stays, new bones apply."
   echo -e "${DIM}After updates: ./better-buddy --salt \"$CHOSEN\"${NC}"
 fi
