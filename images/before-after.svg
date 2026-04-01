@@ -1,0 +1,165 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="350" viewBox="0 0 700 350">
+  <defs>
+    <!-- Dark background gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1025;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#120d1e;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Before card gradient -->
+    <linearGradient id="beforeCard" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e1830;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16122a;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- After card gradient -->
+    <linearGradient id="afterCard" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#221a0e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1208;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Gold glow filter for Nyx -->
+    <filter id="goldGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Subtle glow for legendary card border -->
+    <filter id="legendaryGlow" x="-5%" y="-5%" width="110%" height="110%">
+      <feGaussianBlur stdDeviation="2.5" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Scanline pattern for terminal feel -->
+    <pattern id="scanlines" x="0" y="0" width="2" height="4" patternUnits="userSpaceOnUse">
+      <rect width="2" height="1" fill="rgba(255,255,255,0.015)" />
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="700" height="350" fill="url(#bgGrad)" />
+  <rect width="700" height="350" fill="url(#scanlines)" />
+
+  <!-- === BEFORE CARD === -->
+  <!-- Card shadow -->
+  <rect x="22" y="22" width="290" height="306" rx="10" ry="10" fill="rgba(0,0,0,0.4)" />
+  <!-- Card body -->
+  <rect x="18" y="18" width="290" height="306" rx="10" ry="10" fill="url(#beforeCard)" />
+  <!-- Card border - uncommon green -->
+  <rect x="18" y="18" width="290" height="306" rx="10" ry="10" fill="none" stroke="#4a9959" stroke-width="1.5" stroke-opacity="0.7" />
+
+  <!-- "Before" title -->
+  <text x="163" y="46" font-family="monospace" font-size="13" fill="#6b7280" text-anchor="middle" letter-spacing="3">BEFORE</text>
+
+  <!-- Divider under title -->
+  <line x1="38" y1="54" x2="288" y2="54" stroke="#4a9959" stroke-width="0.5" stroke-opacity="0.3" />
+
+  <!-- Hat label -->
+  <text x="163" y="74" font-family="monospace" font-size="9" fill="#4a5568" text-anchor="middle" letter-spacing="1">[ beanie ]</text>
+
+  <!-- ASCII art octopus - green -->
+  <text x="163" y="100" font-family="'Courier New', Courier, monospace" font-size="13" fill="#4a9959" text-anchor="middle" xml:space="preserve">   .----.</text>
+  <text x="163" y="116" font-family="'Courier New', Courier, monospace" font-size="13" fill="#4a9959" text-anchor="middle" xml:space="preserve">  ( °  ° )</text>
+  <text x="163" y="132" font-family="'Courier New', Courier, monospace" font-size="13" fill="#4a9959" text-anchor="middle" xml:space="preserve">  (______)</text>
+  <text x="163" y="148" font-family="'Courier New', Courier, monospace" font-size="13" fill="#4a9959" text-anchor="middle" xml:space="preserve">  /\/\/\/\</text>
+
+  <!-- Creature name -->
+  <text x="163" y="176" font-family="'Georgia', serif" font-size="16" fill="#5aad6a" text-anchor="middle" font-style="italic">Slatmind</text>
+
+  <!-- Rarity -->
+  <text x="163" y="197" font-family="monospace" font-size="11" fill="#4a9959" text-anchor="middle" letter-spacing="1">★★ UNCOMMON</text>
+
+  <!-- Divider -->
+  <line x1="48" y1="208" x2="278" y2="208" stroke="#4a9959" stroke-width="0.5" stroke-opacity="0.25" />
+
+  <!-- Stats label -->
+  <text x="48" y="225" font-family="monospace" font-size="9" fill="#4a5568" letter-spacing="1">STATS</text>
+
+  <!-- PATIENCE stat -->
+  <text x="48" y="243" font-family="monospace" font-size="10" fill="#6b7280">PATIENCE</text>
+  <text x="228" y="243" font-family="monospace" font-size="10" fill="#4a9959" text-anchor="end">6</text>
+
+  <!-- Patience bar - nearly empty -->
+  <rect x="48" y="248" width="180" height="6" rx="3" fill="#1e1830" stroke="#2d2540" stroke-width="0.5" />
+  <rect x="48" y="248" width="11" height="6" rx="3" fill="#4a9959" opacity="0.6" />
+
+  <!-- Flavor text -->
+  <text x="163" y="278" font-family="monospace" font-size="8" fill="#3d4451" text-anchor="middle" font-style="italic">"deploys on fridays"</text>
+
+  <!-- Bottom rarity bar -->
+  <rect x="18" y="305" width="290" height="19" rx="0" fill="rgba(74,153,89,0.08)" />
+  <rect x="18" y="305" width="290" height="19" rx="0" fill="none" />
+  <line x1="18" y1="305" x2="308" y2="305" stroke="#4a9959" stroke-width="0.5" stroke-opacity="0.3" />
+  <text x="163" y="318" font-family="monospace" font-size="8" fill="#4a9959" text-anchor="middle" letter-spacing="2" opacity="0.6">COMMON COMPANION</text>
+
+  <!-- === ARROW BETWEEN CARDS === -->
+  <text x="350" y="178" font-family="monospace" font-size="18" fill="#4a5568" text-anchor="middle" opacity="0.5">→</text>
+  <text x="350" y="196" font-family="monospace" font-size="7" fill="#3d4451" text-anchor="middle" letter-spacing="1" opacity="0.6">your call</text>
+
+  <!-- === AFTER CARD === -->
+  <!-- Legendary glow effect (outer) -->
+  <rect x="389" y="14" width="298" height="314" rx="12" ry="12" fill="none" stroke="#d4870a" stroke-width="1" stroke-opacity="0.15" filter="url(#legendaryGlow)" />
+  <!-- Card shadow -->
+  <rect x="394" y="22" width="290" height="306" rx="10" ry="10" fill="rgba(0,0,0,0.5)" />
+  <!-- Card body -->
+  <rect x="390" y="18" width="290" height="306" rx="10" ry="10" fill="url(#afterCard)" />
+  <!-- Card border - legendary gold, with glow -->
+  <rect x="390" y="18" width="290" height="306" rx="10" ry="10" fill="none" stroke="#d4870a" stroke-width="2" stroke-opacity="0.9" filter="url(#legendaryGlow)" />
+  <!-- Inner border accent -->
+  <rect x="393" y="21" width="284" height="300" rx="8" ry="8" fill="none" stroke="#f0a832" stroke-width="0.5" stroke-opacity="0.2" />
+
+  <!-- "After" title - bright -->
+  <text x="535" y="46" font-family="monospace" font-size="13" fill="#f0c060" text-anchor="middle" letter-spacing="3" font-weight="bold">AFTER</text>
+
+  <!-- Divider under title -->
+  <line x1="410" y1="54" x2="660" y2="54" stroke="#d4870a" stroke-width="0.5" stroke-opacity="0.5" />
+
+  <!-- Crown above dragon -->
+  <text x="535" y="75" font-family="'Courier New', Courier, monospace" font-size="14" fill="#f0c060" text-anchor="middle" filter="url(#goldGlow)">♛</text>
+
+  <!-- ASCII art dragon - gold/amber -->
+  <text x="535" y="100" font-family="'Courier New', Courier, monospace" font-size="13" fill="#d4870a" text-anchor="middle" xml:space="preserve" filter="url(#goldGlow)">   \^^^/</text>
+  <text x="535" y="116" font-family="'Courier New', Courier, monospace" font-size="13" fill="#d4870a" text-anchor="middle" xml:space="preserve" filter="url(#goldGlow)">  /^\  /^\</text>
+  <text x="535" y="132" font-family="'Courier New', Courier, monospace" font-size="13" fill="#f0c060" text-anchor="middle" xml:space="preserve" filter="url(#goldGlow)"> &lt;  ✦  ✦  &gt;</text>
+  <text x="535" y="148" font-family="'Courier New', Courier, monospace" font-size="13" fill="#d4870a" text-anchor="middle" xml:space="preserve" filter="url(#goldGlow)"> (   ~~   )</text>
+  <text x="535" y="164" font-family="'Courier New', Courier, monospace" font-size="13" fill="#d4870a" text-anchor="middle" xml:space="preserve" filter="url(#goldGlow)">  `-vvvv-´</text>
+
+  <!-- Creature name with glow -->
+  <text x="535" y="190" font-family="'Georgia', serif" font-size="18" fill="#f0c060" text-anchor="middle" font-style="italic" font-weight="bold" filter="url(#goldGlow)">Nyx</text>
+
+  <!-- Rarity -->
+  <text x="535" y="210" font-family="monospace" font-size="11" fill="#d4870a" text-anchor="middle" letter-spacing="1" filter="url(#goldGlow)">★★★★★ LEGENDARY</text>
+
+  <!-- SHINY badge -->
+  <rect x="482" y="216" width="106" height="16" rx="8" fill="rgba(212,135,10,0.15)" stroke="#d4870a" stroke-width="0.8" stroke-opacity="0.5" />
+  <text x="535" y="228" font-family="monospace" font-size="9" fill="#f0c060" text-anchor="middle" letter-spacing="2">✨ SHINY</text>
+
+  <!-- Divider -->
+  <line x1="420" y1="240" x2="650" y2="240" stroke="#d4870a" stroke-width="0.5" stroke-opacity="0.25" />
+
+  <!-- Stats label -->
+  <text x="420" y="257" font-family="monospace" font-size="9" fill="#7a6030" letter-spacing="1">STATS</text>
+
+  <!-- CHAOS stat -->
+  <text x="420" y="275" font-family="monospace" font-size="10" fill="#a07840">CHAOS</text>
+  <text x="600" y="275" font-family="monospace" font-size="10" fill="#f0c060" text-anchor="end">100</text>
+
+  <!-- Chaos bar - completely full, glowing -->
+  <rect x="420" y="280" width="180" height="6" rx="3" fill="#1a1208" stroke="#3d2a08" stroke-width="0.5" />
+  <rect x="420" y="280" width="180" height="6" rx="3" fill="#d4870a" filter="url(#goldGlow)" />
+
+  <!-- Flavor text -->
+  <text x="535" y="308" font-family="monospace" font-size="8" fill="#7a6030" text-anchor="middle" font-style="italic">"rm -rf is a lifestyle"</text>
+
+  <!-- Bottom rarity bar -->
+  <rect x="390" y="305" width="290" height="19" rx="0" fill="rgba(212,135,10,0.1)" />
+  <line x1="390" y1="305" x2="680" y2="305" stroke="#d4870a" stroke-width="0.5" stroke-opacity="0.4" />
+  <text x="535" y="318" font-family="monospace" font-size="8" fill="#d4870a" text-anchor="middle" letter-spacing="2" filter="url(#goldGlow)">LEGENDARY COMPANION</text>
+
+</svg>

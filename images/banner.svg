@@ -1,0 +1,279 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="300" viewBox="0 0 800 300">
+  <defs>
+    <!-- Background gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0e0818;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#1a1025;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#120d1e;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Glow filters -->
+    <filter id="glowGold" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <filter id="glowSoft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <filter id="glowTitle" x="-10%" y="-30%" width="120%" height="160%">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="glowDragon" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="7" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="subtleGlow" x="-15%" y="-15%" width="130%" height="130%">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Card gradients -->
+    <linearGradient id="cardCommon" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2a2535;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#1e1a2c;stop-opacity:0.9" />
+    </linearGradient>
+    <linearGradient id="cardUncommon" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a2a1e;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#141e18;stop-opacity:0.9" />
+    </linearGradient>
+    <linearGradient id="cardRare" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0e1e2e;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#0a1620;stop-opacity:0.9" />
+    </linearGradient>
+    <linearGradient id="cardEpic" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e1030;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#160c26;stop-opacity:0.9" />
+    </linearGradient>
+    <linearGradient id="cardLegendary" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2e2000;stop-opacity:0.95" />
+      <stop offset="100%" style="stop-color:#1e1500;stop-opacity:0.95" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="300" fill="url(#bgGrad)"/>
+
+  <!-- Subtle grid lines for terminal feel -->
+  <g opacity="0.04" stroke="#8866cc" stroke-width="0.5">
+    <line x1="0" y1="60" x2="800" y2="60"/>
+    <line x1="0" y1="120" x2="800" y2="120"/>
+    <line x1="0" y1="180" x2="800" y2="180"/>
+    <line x1="0" y1="240" x2="800" y2="240"/>
+    <line x1="160" y1="0" x2="160" y2="300"/>
+    <line x1="320" y1="0" x2="320" y2="300"/>
+    <line x1="480" y1="0" x2="480" y2="300"/>
+    <line x1="640" y1="0" x2="640" y2="300"/>
+  </g>
+
+  <!-- Scattered background stars -->
+  <g opacity="0.6" fill="#ffffff">
+    <circle cx="22" cy="18" r="0.8"/>
+    <circle cx="55" cy="42" r="0.5"/>
+    <circle cx="91" cy="11" r="1"/>
+    <circle cx="130" cy="55" r="0.6"/>
+    <circle cx="178" cy="28" r="0.8"/>
+    <circle cx="210" cy="8" r="0.5"/>
+    <circle cx="250" cy="47" r="0.9"/>
+    <circle cx="305" cy="22" r="0.6"/>
+    <circle cx="345" cy="14" r="1"/>
+    <circle cx="388" cy="38" r="0.5"/>
+    <circle cx="430" cy="9" r="0.7"/>
+    <circle cx="468" cy="50" r="0.8"/>
+    <circle cx="512" cy="19" r="0.5"/>
+    <circle cx="558" cy="33" r="0.9"/>
+    <circle cx="601" cy="12" r="0.6"/>
+    <circle cx="645" cy="44" r="0.8"/>
+    <circle cx="690" cy="20" r="0.5"/>
+    <circle cx="730" cy="8" r="1"/>
+    <circle cx="768" cy="35" r="0.6"/>
+    <circle cx="795" cy="55" r="0.7"/>
+    <circle cx="38" cy="270" r="0.7"/>
+    <circle cx="75" cy="285" r="0.5"/>
+    <circle cx="118" cy="260" r="0.8"/>
+    <circle cx="162" cy="290" r="0.6"/>
+    <circle cx="220" cy="268" r="0.9"/>
+    <circle cx="280" cy="280" r="0.5"/>
+    <circle cx="335" cy="265" r="0.7"/>
+    <circle cx="395" cy="288" r="0.8"/>
+    <circle cx="450" cy="272" r="0.5"/>
+    <circle cx="505" cy="290" r="0.9"/>
+    <circle cx="555" cy="260" r="0.6"/>
+    <circle cx="612" cy="278" r="0.8"/>
+    <circle cx="660" cy="265" r="0.5"/>
+    <circle cx="715" cy="285" r="0.7"/>
+    <circle cx="762" cy="270" r="0.9"/>
+    <circle cx="788" cy="290" r="0.5"/>
+  </g>
+
+  <!-- Sparkle glyphs scattered -->
+  <g font-family="serif" font-size="10" opacity="0.25">
+    <text x="15" y="75" fill="#cc99ff">✦</text>
+    <text x="770" y="90" fill="#cc99ff">✦</text>
+    <text x="60" y="260" fill="#99ccff">✦</text>
+    <text x="735" y="255" fill="#99ccff">✦</text>
+    <text x="395" y="72" fill="#ffcc66">✦</text>
+  </g>
+
+  <!-- ===== TITLE ===== -->
+  <text
+    x="400" y="54"
+    text-anchor="middle"
+    font-family="'Courier New', Courier, monospace"
+    font-size="34"
+    font-weight="bold"
+    letter-spacing="3"
+    fill="#e8d8ff"
+    filter="url(#glowTitle)"
+  >better-buddy</text>
+
+  <!-- Subtitle -->
+  <text
+    x="400" y="76"
+    text-anchor="middle"
+    font-family="'Courier New', Courier, monospace"
+    font-size="11"
+    letter-spacing="1.5"
+    fill="#8866aa"
+  >choose your own Claude Code companion</text>
+
+  <!-- Thin separator line -->
+  <line x1="80" y1="84" x2="720" y2="84" stroke="#4a2e6a" stroke-width="0.75" opacity="0.7"/>
+
+  <!-- ===== CREATURE CARDS ===== -->
+  <!-- Card dimensions: ~120px wide, positioned at y=92 to y=248 -->
+
+  <!-- === DUCK (COMMON) — x center: 88 === -->
+  <rect x="28" y="92" width="120" height="156" rx="6" fill="url(#cardCommon)" stroke="#4a3a5e" stroke-width="1"/>
+  <!-- Rarity bar top -->
+  <rect x="28" y="92" width="120" height="3" rx="2" fill="#666677"/>
+
+  <text x="88" y="118" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="9" fill="#778899" filter="url(#subtleGlow)">
+    <tspan x="88" dy="0">  ___</tspan>
+  </text>
+  <text x="88" y="133" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="9" fill="#778899" filter="url(#subtleGlow)">
+    <tspan x="88" dy="0">&lt;(· )___</tspan>
+  </text>
+  <text x="88" y="148" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="9" fill="#778899" filter="url(#subtleGlow)">
+    <tspan x="88" dy="0">  (__/</tspan>
+  </text>
+
+  <text x="88" y="170" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="9" fill="#9999aa" font-style="italic">duck</text>
+  <text x="88" y="186" text-anchor="middle" font-family="serif" font-size="11" fill="#556677">★</text>
+  <text x="88" y="200" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="8" fill="#556677" letter-spacing="0.5">COMMON</text>
+
+  <!-- === CAT (UNCOMMON) — x center: 232 === -->
+  <rect x="172" y="92" width="120" height="156" rx="6" fill="url(#cardUncommon)" stroke="#2a5a3a" stroke-width="1"/>
+  <rect x="172" y="92" width="120" height="3" rx="2" fill="#44bb66"/>
+
+  <text x="232" y="115" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="9" fill="#44dd77" filter="url(#subtleGlow)">
+    <tspan x="232" dy="0">/\_/\</tspan>
+  </text>
+  <text x="232" y="130" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="9" fill="#44dd77" filter="url(#subtleGlow)">
+    <tspan x="232" dy="0">( ✦  ✦)</tspan>
+  </text>
+  <text x="232" y="145" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="9" fill="#44dd77" filter="url(#subtleGlow)">
+    <tspan x="232" dy="0"> &gt;   &lt;</tspan>
+  </text>
+  <text x="232" y="160" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="9" fill="#33bb55" filter="url(#subtleGlow)">
+    <tspan x="232" dy="0">  ~~</tspan>
+  </text>
+
+  <text x="232" y="178" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="9" fill="#55cc77" font-style="italic">cat</text>
+  <text x="232" y="194" text-anchor="middle" font-family="serif" font-size="11" fill="#33aa55">★★</text>
+  <text x="232" y="207" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="8" fill="#33aa55" letter-spacing="0.5">UNCOMMON</text>
+
+  <!-- === OCTOPUS (RARE) — x center: 376 === -->
+  <rect x="316" y="92" width="120" height="156" rx="6" fill="url(#cardRare)" stroke="#1a4a6a" stroke-width="1"/>
+  <rect x="316" y="92" width="120" height="3" rx="2" fill="#2299dd"/>
+
+  <text x="376" y="114" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="9" fill="#33bbee" filter="url(#subtleGlow)">
+    <tspan x="376" dy="0">  ___</tspan>
+  </text>
+  <text x="376" y="129" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="9" fill="#33bbee" filter="url(#subtleGlow)">
+    <tspan x="376" dy="0">( ◉  ◉ )</tspan>
+  </text>
+  <text x="376" y="144" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="9" fill="#33bbee" filter="url(#subtleGlow)">
+    <tspan x="376" dy="0"> \____/</tspan>
+  </text>
+  <text x="376" y="159" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="9" fill="#2299cc" filter="url(#subtleGlow)">
+    <tspan x="376" dy="0">/\/\/\/\</tspan>
+  </text>
+
+  <text x="376" y="177" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="9" fill="#44ccee" font-style="italic">octopus</text>
+  <text x="376" y="193" text-anchor="middle" font-family="serif" font-size="11" fill="#2299cc">★★★</text>
+  <text x="376" y="206" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="8" fill="#2299cc" letter-spacing="0.5">RARE</text>
+
+  <!-- === GHOST (EPIC) — x center: 520 === -->
+  <rect x="460" y="92" width="120" height="156" rx="6" fill="url(#cardEpic)" stroke="#4a2a7a" stroke-width="1"/>
+  <rect x="460" y="92" width="120" height="3" rx="2" fill="#9944cc"/>
+
+  <text x="520" y="114" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="9" fill="#cc66ff" filter="url(#subtleGlow)">
+    <tspan x="520" dy="0">  ___</tspan>
+  </text>
+  <text x="520" y="129" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="9" fill="#cc66ff" filter="url(#subtleGlow)">
+    <tspan x="520" dy="0">/ ×  × \</tspan>
+  </text>
+  <text x="520" y="144" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="9" fill="#cc66ff" filter="url(#subtleGlow)">
+    <tspan x="520" dy="0">|  ___  |</tspan>
+  </text>
+  <text x="520" y="159" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="9" fill="#aa44dd" filter="url(#subtleGlow)">
+    <tspan x="520" dy="0">\~/ \~/</tspan>
+  </text>
+
+  <text x="520" y="177" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="9" fill="#dd88ff" font-style="italic">ghost</text>
+  <text x="520" y="193" text-anchor="middle" font-family="serif" font-size="11" fill="#9944cc">★★★★</text>
+  <text x="520" y="206" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="8" fill="#9944cc" letter-spacing="0.5">EPIC</text>
+
+  <!-- === DRAGON (LEGENDARY) — x center: 672, slightly taller card === -->
+  <!-- Glow halo behind card -->
+  <rect x="649" y="86" width="126" height="168" rx="8" fill="#ffaa00" opacity="0.06"/>
+  <rect x="652" y="89" width="122" height="164" rx="7" fill="#ffcc00" opacity="0.04"/>
+
+  <rect x="655" y="89" width="118" height="162" rx="6" fill="url(#cardLegendary)" stroke="#aa7700" stroke-width="1.5"/>
+  <!-- Legendary top bar (shimmer effect) -->
+  <rect x="655" y="89" width="118" height="3" rx="2" fill="#ffcc22"/>
+
+  <!-- Crown above dragon head -->
+  <text x="714" y="107" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="9" fill="#ffdd44" filter="url(#glowDragon)">
+    <tspan x="714" dy="0">\^^^/</tspan>
+  </text>
+  <text x="714" y="120" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="10" fill="#ffcc22" filter="url(#glowDragon)">
+    <tspan x="714" dy="0">/^\ /^\</tspan>
+  </text>
+  <text x="714" y="135" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="10" fill="#ffcc22" filter="url(#glowDragon)">
+    <tspan x="714" dy="0">&lt; ✦  ✦ &gt;</tspan>
+  </text>
+  <text x="714" y="150" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="10" fill="#ffbb11" filter="url(#glowDragon)">
+    <tspan x="714" dy="0"> \____/</tspan>
+  </text>
+  <text x="714" y="165" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="9" fill="#dd9900" filter="url(#glowSoft)">
+    <tspan x="714" dy="0">  /  \</tspan>
+  </text>
+
+  <text x="714" y="182" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="9" fill="#ffdd88" font-style="italic" filter="url(#glowSoft)">dragon</text>
+  <text x="714" y="198" text-anchor="middle" font-family="serif" font-size="12" fill="#ffcc22" filter="url(#glowSoft)">★★★★★</text>
+  <text x="714" y="212" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="8" fill="#ffaa00" letter-spacing="0.5" filter="url(#glowSoft)">LEGENDARY</text>
+
+  <!-- ===== BOTTOM BAR ===== -->
+  <line x1="80" y1="258" x2="720" y2="258" stroke="#4a2e6a" stroke-width="0.75" opacity="0.7"/>
+
+  <!-- Bottom tagline -->
+  <text x="400" y="276" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="9" fill="#5a4070" letter-spacing="2">
+    $ claude --companion duck  •  your call
+  </text>
+
+  <!-- Corner decorations -->
+  <text x="20" y="290" font-family="'Courier New', Courier, monospace" font-size="9" fill="#3a2050" opacity="0.8">[ v1.0 ]</text>
+  <text x="780" y="290" text-anchor="end" font-family="'Courier New', Courier, monospace" font-size="9" fill="#3a2050" opacity="0.8">[ ★ ]</text>
+</svg>
