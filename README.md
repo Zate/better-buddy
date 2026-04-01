@@ -41,7 +41,7 @@ The salt `friend-2026-401` is a 15-byte string literal in the compiled binary. *
 ## Quick Start
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/better-buddy.git
+git clone https://github.com/Zate/better-buddy.git
 cd better-buddy
 
 # See what you have now
