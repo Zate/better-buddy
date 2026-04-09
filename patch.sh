@@ -17,12 +17,19 @@ set -euo pipefail
 
 # ── Configuration ─────────────────────────────────────────────────────────────
 
-# Set this to your forged salt (from forge.ts). Must be exactly 15 characters.
-# Override per-run with: ./patch.sh --salt "YOUR_SALT"
-DEFAULT_SALT=""
-
 # The original salt compiled into Claude Code — do not change this.
 ORIGINAL_SALT="friend-2026-401"
+
+# Config file for persistent salt storage
+CONFIG_FILE="${BUDDY_CONFIG:-$HOME/.config/better-buddy/config}"
+
+# Load default salt: env var > config file > empty
+DEFAULT_SALT="${BUDDY_SALT:-}"
+if [[ -z "$DEFAULT_SALT" && -f "$CONFIG_FILE" ]]; then
+  # shellcheck source=/dev/null
+  source "$CONFIG_FILE" 2>/dev/null
+  DEFAULT_SALT="${BUDDY_SALT:-}"
+fi
 
 # ── Colors ────────────────────────────────────────────────────────────────────
 RED='\033[0;31m'
@@ -50,6 +57,17 @@ BACKUP="${BINARY}.original"
 count_occurrences() {
   local file="$1" pattern="$2"
   (grep -boa "$pattern" "$file" 2>/dev/null || true) | wc -l | tr -d ' '
+}
+
+save_salt() {
+  local salt="$1"
+  mkdir -p "$(dirname "$CONFIG_FILE")"
+  cat > "$CONFIG_FILE" <<EOF
+# better-buddy config — auto-managed, but safe to hand-edit
+# This file is read by buddy-ensure.sh and patch.sh
+BUDDY_SALT="$salt"
+EOF
+  echo -e "  ${DIM}Salt saved to $CONFIG_FILE${NC}"
 }
 
 print_banner() {
@@ -145,6 +163,7 @@ do_patch() {
   new_custom=$(count_occurrences "$BINARY" "$salt")
 
   if [[ "$new_orig" -eq 0 && "$new_custom" -gt 0 ]]; then
+    save_salt "$salt"
     echo ""
     echo -e "  ${GREEN}✅ Patched successfully${NC} ($new_custom occurrences replaced)."
     echo ""

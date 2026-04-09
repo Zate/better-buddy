@@ -27,8 +27,16 @@ set -euo pipefail
 # Configuration
 # ═══════════════════════════════════════════════════════════════════════════════
 
-SALT="${BUDDY_SALT:-}"
 ORIGINAL_SALT="friend-2026-401"
+CONFIG_FILE="${BUDDY_CONFIG:-$HOME/.config/better-buddy/config}"
+
+# Load salt: env var > config file
+SALT="${BUDDY_SALT:-}"
+if [[ -z "$SALT" && -f "$CONFIG_FILE" ]]; then
+  # shellcheck source=/dev/null
+  source "$CONFIG_FILE" 2>/dev/null
+  SALT="${BUDDY_SALT:-}"
+fi
 
 # Config files to check/sync (in priority order)
 # CLAUDE_CONFIG_DIR is set by Claude Code when launched with --config-dir
@@ -126,6 +134,17 @@ log() {
   if $VERBOSE || [[ "$MODE" != "ensure" ]]; then
     echo -e "$@"
   fi
+}
+
+save_salt() {
+  local salt="$1"
+  mkdir -p "$(dirname "$CONFIG_FILE")"
+  cat > "$CONFIG_FILE" <<EOF
+# better-buddy config — auto-managed, but safe to hand-edit
+# This file is read by buddy-ensure.sh and patch.sh
+BUDDY_SALT="$salt"
+EOF
+  log "  ${DIM}Salt saved to $CONFIG_FILE${NC}"
 }
 
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -399,6 +418,7 @@ case "$MODE" in
       fi
       log "  ${CYAN}↻${NC} Patching buddy..."
       if do_patch; then
+        save_salt "$SALT"
         exit 2  # signal to caller: patched this run, restart needed
       else
         exit 1

@@ -18,6 +18,7 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ORIGINAL_SALT="friend-2026-401"
+CONFIG_FILE="${BUDDY_CONFIG:-$HOME/.config/better-buddy/config}"
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # Colors
@@ -152,6 +153,16 @@ except: pass
 # ═══════════════════════════════════════════════════════════════════════════════
 # Patch
 # ═══════════════════════════════════════════════════════════════════════════════
+
+save_salt() {
+  local salt="$1"
+  mkdir -p "$(dirname "$CONFIG_FILE")"
+  cat > "$CONFIG_FILE" <<EOF
+# better-buddy config — auto-managed, but safe to hand-edit
+# This file is read by buddy-ensure.sh and patch.sh
+BUDDY_SALT="$salt"
+EOF
+}
 
 do_patch() {
   local binary="$1" salt="$2" backup="${1}.original"
@@ -299,7 +310,9 @@ else: print('none')
     check_claude; check_python
     BINARY="$(resolve_binary)"
     if do_patch "$BINARY" "$MANUAL_SALT"; then
+      save_salt "$MANUAL_SALT"
       echo -e "${GREEN}✓${NC} Patched. Restart Claude Code — your companion name stays, new bones apply."
+      echo -e "${DIM}Salt saved to $CONFIG_FILE${NC}"
     fi
     exit 0
     ;;
@@ -407,7 +420,8 @@ else
 fi
 
 if do_patch "$BINARY" "$CHOSEN"; then
+  save_salt "$CHOSEN"
   echo ""
   echo -e "${GREEN}✓${NC} Patched. Restart Claude Code — your companion name stays, new bones apply."
-  echo -e "${DIM}After updates: ./better-buddy --salt \"$CHOSEN\"${NC}"
+  echo -e "${DIM}Salt saved to $CONFIG_FILE — buddy-ensure will re-apply after updates.${NC}"
 fi
